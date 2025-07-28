@@ -1,6 +1,6 @@
-# 📘 **Examverse** – PHP Portal for Student Exam Paper Downloads
+# 📘 **Cupuriportal** – PHP Portal for Student Exam Paper Downloads
 
-**Examverse** is a clean, modern PHP-based platform that allows students to browse and download past examination papers with ease. Designed for academic institutions, it provides a streamlined interface and organized file access that reduces stress during exam preparation.
+**Cupuriportal** is a clean, modern PHP-based platform that allows students to browse and download past examination papers with ease. Designed for academic institutions, it provides a streamlined interface and organized file access that reduces stress during exam preparation.
 
 ---
 
