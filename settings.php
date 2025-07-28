@@ -8,6 +8,9 @@ if (!isset($_SESSION['user_id'])) {
 }
 ?>
 
+
+<!-- http://localhost/login_system/settings.php -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

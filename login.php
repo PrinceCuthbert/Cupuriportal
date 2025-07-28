@@ -21,7 +21,7 @@ if ($_POST) {
         $error = "Both email and password are required.";
     } else {
         // Check user credentials
-        $stmt = $conn->prepare("SELECT id, full_name, email, password FROM users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, full_name, email, password,role FROM users WHERE email = ?");
         if (!$stmt) {
             $error = "Database error: " . $conn->error;
         } else {
@@ -44,7 +44,8 @@ if ($_POST) {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['full_name'];
                     $_SESSION['user_email'] = $user['email'];
-                    
+                    $_SESSION['role'] = $user['role'];
+
                     echo "<!-- Debug: Session created, redirecting -->";
                     
                     header("Location: dashboard.php");

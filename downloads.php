@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Fetch all necessary fields
-$result = mysqli_query($conn, "SELECT id, title, file_path, subject, level FROM downloads");
+$result = mysqli_query($conn, "SELECT id, title, file_path, lecture_name,subject, uploaded_at FROM downloads");
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +123,7 @@ $result = mysqli_query($conn, "SELECT id, title, file_path, subject, level FROM 
           <tr>
             <th>Title</th>
             <th>Subject</th>
-            <th>Level</th>
+            <th>Lecture Name</th>
             <th>Download</th>
           </tr>
         </thead>
@@ -132,7 +132,7 @@ $result = mysqli_query($conn, "SELECT id, title, file_path, subject, level FROM 
             <tr>
               <td><?= htmlspecialchars($row['title']) ?></td>
               <td><?= htmlspecialchars($row['subject']) ?></td>
-              <td><?= htmlspecialchars($row['level']) ?></td>
+              <td><?= htmlspecialchars($row['lecture_name']) ?></td>
               <td>
                 <a class="download-btn" href="<?= htmlspecialchars($row['file_path']) ?>" download>Download</a>
               </td>

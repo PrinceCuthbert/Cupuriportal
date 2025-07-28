@@ -11,6 +11,10 @@ $resources = [
 ];
 ?>
 
+
+<!-- http://localhost/login_system/resources.php -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -7,7 +7,11 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userName = $_SESSION['user_name'];
+$userRole = $_SESSION['role']; // ✅ get the role
 ?>
+
+
+<!-- http://localhost/login_system/dashboard.php -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +46,13 @@ $userName = $_SESSION['user_name'];
     <header class="topbar">
       <div class="greeting">
         <h1>Welcome back, <?= htmlspecialchars($userName) ?> 🎓</h1>
-        <p class="subtitle">Student Dashboard</p>
+        <p class="subtitle"><?= htmlspecialchars($userRole) ?> Dashboard</p>
       </div>
       <div class="actions">
         <a href="downloads.php" class="btn">📂 Browse Exams</a>
-        <a href="downloads.php" class="btn primary">⬆️ Upload</a>
+    <?php if ($userRole === 'admin'): ?>
+    <a href="upload.php" class="btn primary">⬆️ Upload</a>
+<?php endif; ?>
       </div>
     </header>
 

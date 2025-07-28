@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $host = 'localhost';
 $username = 'root';
 $password = '';  // Default XAMPP MySQL password is empty
-$database = 'user_system';
+$database = 'cupuri_portal';
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);

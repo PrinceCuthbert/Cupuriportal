@@ -2,7 +2,7 @@
 // delete_user.php
 
 // Step 1: Connect to your database
-$conn = new mysqli("localhost", "root", "", "your_database_name");
+$conn = new mysqli("localhost", "root", "", "cupuri_portal");
 
 // Step 2: Check connection
 if ($conn->connect_error) {
