@@ -99,8 +99,14 @@ $insert->bind_param("ssssssssssss", $full_name, $email, $hashed_password, $full_
         border-radius: 10px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         width: 100%;
-        max-width: 400px;
+        max-width: 600px;
     }
+   
+    form{
+      display:grid;
+      grid-template:column;
+    }
+   
 
     .form-title {
         text-align: center;
@@ -456,13 +462,56 @@ document.querySelector("form").addEventListener("submit", function (e) {
   }
 
   // HTML5 validation
-  fields.forEach(field => {
-    if (!field.checkValidity()) {
-      const placeholder = field.getAttribute("placeholder") || "Please correct this";
-      markError(field, placeholder);
-      hasErrors = true;
+ fields.forEach(field => {
+  if (!field.checkValidity()) {
+    let message = '';
+
+    switch (field.name) {
+      case "full_name":
+        message = "Full name must be between 3 and 100 characters.";
+        break;
+      case "email":
+        message = "Please enter a valid @gmail.com email address.";
+        break;
+      case "password":
+        message = "Password must be at least 10 characters, include uppercase, lowercase, a number, and a special character.";
+        break;
+      case "confirm_password":
+        message = "Please confirm your password.";
+        break;
+      case "country_code":
+        message = "Please select your country code.";
+        break;
+      case "contact_number":
+        message = "Contact number must be exactly 9 digits and cannot start with 0.";
+        break;
+      case "address":
+        message = "Please enter your address.";
+        break;
+      case "birthdate":
+        message = "Please enter a valid birthdate (you must be at least 18).";
+        break;
+      case "occupation":
+        message = "Please enter your occupation.";
+        break;
+      case "civil_status":
+        message = "Please select your civil status.";
+        break;
+      case "gender":
+        message = "Please select your gender.";
+        break;
+      case "religion":
+        message = "Please enter your religion.";
+        break;
+      default:
+        message = field.validationMessage || "Please complete this field correctly.";
     }
-  });
+
+    markError(field, message);
+    hasErrors = true;
+  }
+});
+
 
  if (!hasErrors) {
   const countryCode = document.getElementById("country_code").value;
